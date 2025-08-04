@@ -28,3 +28,5 @@ npm run dev
 Contributers:
 - **Andy Wang**  
   [🔗 LinkedIn](https://www.linkedin.com/in/zhengxuwang/)
+- **Ghanashyam Vagale Srinivas**  
+  [🔗 LinkedIn](https://github.com/GhanashyamVagale)
