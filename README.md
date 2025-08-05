@@ -25,7 +25,9 @@ npm install
 # Start the dev server
 npm run dev
 ```
+
 Contributers:
+
 - **Andy Wang**  
   [🔗 LinkedIn](https://www.linkedin.com/in/zhengxuwang/)
 
@@ -33,4 +35,7 @@ Contributers:
   [🔗 LinkedIn](https://github.com/GhanashyamVagale)
 
 - **Akhil Reddy Motakatla**
-    [🔗 LinkedIn](https://www.linkedin.com/in/akhil-reddy-motakatla/)
+  [🔗 LinkedIn](https://www.linkedin.com/in/akhil-reddy-motakatla/)
+
+- **Ragasree Thatipamula**
+  [🔗 LinkedIn](https://www.linkedin.com/in/ragasree-thatipamula-4a83a2184)
