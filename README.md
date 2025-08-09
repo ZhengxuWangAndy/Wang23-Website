@@ -28,5 +28,6 @@ npm run dev
 Contributers:
 - **Andy Wang**  
   [🔗 LinkedIn](https://www.linkedin.com/in/zhengxuwang/)
+  
 - **Akhil Reddy Motakatla**
-    [🔗 LinkedIn](https://www.linkedin.com/in/akhil-reddy-motakatla/)
+  [🔗 LinkedIn](https://www.linkedin.com/in/akhil-reddy-motakatla/)
