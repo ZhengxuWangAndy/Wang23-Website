@@ -1,0 +1,197 @@
+.footer {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #0d47a1;
+  color: white;
+  padding: 0.5rem 1rem;        /* Reduced vertical padding */
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;          /* Slightly smaller font size */
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+  user-select: none;
+  max-height: 100px;           /* Reduced max height */
+  overflow: hidden;            /* Prevent overflow if content tries to expand */
+}
+
+.footer p {
+  margin: 0;
+  color: #ffca28;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  line-height: 1.1;            /* Tighter line height */
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.75rem;                /* Reduced gap */
+  flex-wrap: wrap;             /* Wrap if needed on smaller screens */
+}
+
+.footer-links a {
+  color: #ffca28;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  white-space: nowrap;         /* Prevent link wrapping */
+  font-size: 0.85rem;          /* Smaller font size for links */
+}
+
+.footer-links a:hover {
+  color: #f9a825;
+}
+
+/* Social icons container */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #ffca28;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;          /* Slightly smaller than before */
+}
+
+.social-icons a:hover {
+  color: #f9a825;
+}
+
+.icon {
+  width: 20px;                 /* Slightly smaller icons */
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover .icon {
+  transform: scale(1.1);
+}
+
+.footer-contact {
+  margin-top: 0.5rem;          /* Reduced top margin */
+  font-size: 0.75rem;          /* Smaller font size */
+  color: #ffca28;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;                /* Smaller gap */
+  line-height: 1.1;
+}
+
+.footer-contact a {
+  color: #ffca28;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer-contact a:hover {
+  color: #f9a825;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    max-height: none;          /* Let it expand naturally on small screens */
+    padding: 0.75rem 1rem;
+  }
+
+  .footer-links {
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .footer-contact {
+    align-items: center;
+    text-align: center;
+    margin-top: 0.5rem;
+    gap: 0.2rem;
+  }
+}
+
+/* Horizontal social icons container renamed for clarity */
+.social-icons-vertical {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons-vertical a {
+  color: #ffca28;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons-vertical a:hover {
+  color: #f9a825;
+}
+.footer-contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  color: #ffca28;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.footer-contact-info,
+.footer-contact-address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 200px;
+}
+
+.footer-contact a {
+  color: #ffca28;
+  text-decoration: underline;
+}
+.footer-contact-info a {
+  color: #ffca28;
+  text-decoration: underline;
+}
+
+.footer-contact a:hover {
+  color: #f9a825;
+  text-decoration: none;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .footer-contact-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-contact-info,
+  .footer-contact-address {
+    min-width: auto;
+  }
+}
