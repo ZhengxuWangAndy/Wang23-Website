@@ -1,0 +1,103 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  background-color: #0d47a1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-weight: 600;
+}
+
+.navbar-logo a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  user-select: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 3px solid transparent;
+  display: inline-block;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: #ffca28;
+  border-bottom-color: #ffca28;
+  font-weight: 700;
+}
+
+/* Responsive: hamburger menu could be added later */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  .navbar-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .navbar-logo a {
+    font-size: 1.3rem;
+  }
+}
+
+/* Existing navbar styles here... */
+
+.schedule-button {
+  background-color: #e53935; /* Red background */
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;       /* Increased horizontal padding for length */
+  border-radius: 9999px;    /* Large radius for pill shape */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  border: none;
+  display: inline-block;
+  min-width: 140px;         /* Optional: sets minimum width for consistent size */
+  text-align: center;       /* Center text inside button */
+  letter-spacing: 1px;      /* Slight letter spacing for style */
+  font-size: 0.9rem;
+}
+
+
+/* Hover effect */
+.schedule-button:hover {
+  background-color: #b71c1c; /* Darker red on hover */
+  color: white;
+  text-decoration: none;
+}
+
+/* Active state */
+.schedule-button.active {
+  background-color: #b71c1c;
+  color: white;
+}
+
+/* Make sure link inside list item doesn’t inherit default navbar link styles */
+.navbar-links li .schedule-button {
+  /* Override any conflicting styles */
+  border-bottom: none;
+}

@@ -1,20 +1,40 @@
-import React from "react";
-import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";
-import "./styles/global.css";
-import "./styles/HeaderFooter.css";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Careers from './pages/Careers';
+import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
+import Schedule from './pages/Schedule';
+import Services from './pages/Services';
+import Testimonials from './pages/Testimonials';
+
+import './App.css';  // You can add global app styles here
 
 const App: React.FC = () => {
   return (
-    <>
-      <Navbar />
-      {/* Page Content */}
-      <main style={{ minHeight: "80vh", padding: "2rem" }}>
-        <h1>Welcome to Wang23 LLC</h1>
-        <p>We build amazing websites for restaurants.</p>
-      </main>
-      <Footer />
-    </>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
