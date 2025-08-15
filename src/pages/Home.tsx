@@ -1,38 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Home.css';
+import homeContent from '../data/homeContent.json';
 
-const Home: React.FC = () => {
+interface HomeContentData {
+  heading: string;
+  tagLine: string;
+  btnText: string;
+  introduction: {
+    heading: string;
+    content: string;
+  };
+  features: {
+    heading: string;
+    featureList: string[];
+  };
+  cta: {
+    heading: string;
+    content: string;
+    btnText: string;
+  }
+}
+
+const Home: React.FC = (props) => {
+
+  const { language } = props;
+  const [content, setContent] = useState<HomeContentData | null>(null);
+
+  useEffect(() => {
+    const selectedContent = homeContent[language as keyof typeof homeContent];
+    setContent(selectedContent || homeContent.en);
+  }, [language]);
+
+  if (!content) return <p>Loading...</p>;
+
   return (
     <section className="home">
       <div className="home-content">
-        <h1>Building Beautiful Websites for Restaurants</h1>
-        <p className="tagline">Your vision, our expertise — crafting websites that bring your restaurant’s story to life.</p>
+        <h1>{content.heading}</h1>
+        <p className="tagline">{content.tagLine}</p>
 
-        <button className="btn-primary">See How We Can Help</button>
+        <button className="btn-primary">{content.btnText}</button>
 
         <div className="intro">
-          <h2>Elevate Your Restaurant’s Online Presence</h2>
+          <h2>{content.introduction.heading}</h2>
           <p>
-            A professionally designed website can turn casual browsers into loyal diners. 
-            We create intuitive, appetizing websites tailored specifically for restaurants — showcasing menus, ambiance, and seamless booking experiences.
+            {content.introduction.content}
           </p>
         </div>
 
         <div className="features">
-          <h2>Key Features</h2>
+          <h2>{content.features.heading}</h2>
           <ul>
-            <li>Interactive Menu Integration</li>
-            <li>Online Reservation System</li>
-            <li>Mobile-Optimized Design</li>
-            <li>Photo Galleries & Virtual Tours</li>
-            <li>Social Media & Review Integration</li>
+            {content.features.featureList.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
           </ul>
         </div>
 
         <div className="cta">
-          <h2>Ready to Transform Your Restaurant’s Website?</h2>
-          <p>Contact us today to discuss how we can help you create a stunning online presence that attracts more customers.</p>
-          <button className="btn-secondary">Get in Touch</button>
+          <h2>{content.cta.heading}</h2>
+          <p>{content.cta.content}</p>
+          <button className="btn-secondary">{content.cta.btnText}</button>
 
         </div>
       </div>
