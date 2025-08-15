@@ -30,11 +30,9 @@ Contributers:
 
 - **Andy Wang**  
   [🔗 LinkedIn](https://www.linkedin.com/in/zhengxuwang/)
-<<<<<<< HEAD
   
 - **Akhil Reddy Motakatla**
   [🔗 LinkedIn](https://www.linkedin.com/in/akhil-reddy-motakatla/)
-=======
 
 - **Ghanashyam Vagale Srinivas**  
   [🔗 LinkedIn](https://github.com/GhanashyamVagale)
@@ -44,4 +42,3 @@ Contributers:
     
 - **Sai Ganesh Bhukya**
     [🔗 LinkedIn](https://www.linkedin.com/in/sai-ganesh-bhukya-08a409160/)
->>>>>>> origin/develop
