@@ -8,7 +8,6 @@ const Navbar: React.FC = (props) => {
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
-    // TODO: trigger actual language change logic here
   };
 
   return (

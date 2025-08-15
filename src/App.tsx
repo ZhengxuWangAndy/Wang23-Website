@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/NavBar';
@@ -17,7 +17,13 @@ import './App.css';  // You can add global app styles here
 
 const App: React.FC = () => {
 
-  const [language, setLanguage] = React.useState("en");
+  const [language, setLanguage] = useState<string>(() => {
+    return localStorage.getItem("language") || "en";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("language", language);
+  }, [language]);
   
   return (
     <Router>
