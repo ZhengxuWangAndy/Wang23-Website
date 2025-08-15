@@ -101,3 +101,15 @@
   /* Override any conflicting styles */
   border-bottom: none;
 }
+
+.language-dropdown {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.language-dropdown:hover {
+  border-color: #007bff;
+}

@@ -1,0 +1,74 @@
+{
+  "en": {
+    "heading": "Building Beautiful Websites for Restaurants",
+    "tagLine": "Your vision, our expertise — crafting websites that bring your restaurant’s story to life.",
+    "btnText": "See How We Can Help",
+    "introduction": {
+        "heading": "Elevate Your Restaurant’s Online Presence",
+        "content": "A professionally designed website can turn casual browsers into loyal diners. We create intuitive, appetizing websites tailored specifically for restaurants — showcasing menus, ambiance, and seamless booking experiences."
+    },
+    "features": {
+        "heading": "Key Features",
+        "featureList": [
+            "Interactive Menu Integration",
+            "Online Reservation System",
+            "Mobile-Optimized Design",
+            "Photo Galleries & Virtual Tours",
+            "Social Media & Review Integration"
+        ]
+    },
+    "cta": {
+        "heading": "Ready to Transform Your Restaurant’s Website?",
+        "content": "Contact us today to discuss how we can help you create a stunning online presence that attracts more customers.",
+        "btnText": "Get in Touch"
+    }
+  },
+  "es": {
+    "heading": "Creando Sitios Web Hermosos para Restaurantes",
+    "tagLine": "Tu visión, nuestra experiencia — diseñando sitios web que cuentan la historia de tu restaurante.",
+    "btnText": "Descubre Cómo Podemos Ayudarte",
+    "introduction": {
+        "heading": "Eleva la Presencia Online de Tu Restaurante",
+        "content": "Un sitio web diseñado profesionalmente puede convertir a los visitantes ocasionales en clientes habituales. Creamos sitios web intuitivos y atractivos, adaptados específicamente para restaurantes — mostrando menús, ambiente y experiencias de reserva sin problemas."
+    },
+    "features": {
+        "heading": "Características Clave",
+        "featureList": [
+        "Integración de Menú Interactivo",
+        "Sistema de Reservas Online",
+        "Diseño Optimizado para Móviles",
+        "Galerías de Fotos y Tours Virtuales",
+        "Integración con Redes Sociales y Reseñas"
+        ]
+    },
+    "cta": {
+        "heading": "¿Listo para Transformar el Sitio Web de Tu Restaurante?",
+        "content": "Contáctanos hoy para hablar sobre cómo podemos ayudarte a crear una presencia online impactante que atraiga a más clientes.",
+        "btnText": "Ponte en Contacto"
+    }
+  },
+  "zh": {
+    "heading": "为餐厅打造美丽网站",
+    "tagLine": "您的愿景，我们的专业 — 打造讲述您餐厅故事的网站。",
+    "btnText": "了解我们如何提供帮助",
+    "introduction": {
+        "heading": "提升您餐厅的在线形象",
+        "content": "一个专业设计的网站可以将普通浏览者转化为忠实顾客。我们创建直观且吸引人的网站，专为餐厅量身打造 — 展示菜单、环境和无缝预订体验。"
+    },
+    "features": {
+        "heading": "主要特色",
+        "featureList": [
+        "互动菜单集成",
+        "在线预订系统",
+        "移动端优化设计",
+        "照片画廊与虚拟参观",
+        "社交媒体与评论集成"
+        ]
+    },
+    "cta": {
+        "heading": "准备好改造您的餐厅网站了吗？",
+        "content": "立即联系我们，讨论如何帮助您打造吸引更多顾客的出色在线形象。",
+        "btnText": "联系我们"
+    }
+  }
+}

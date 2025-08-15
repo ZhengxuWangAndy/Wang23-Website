@@ -2,7 +2,14 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../styles/Navbar.css';
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = (props) => {
+
+  const { language, setLanguage } = props;
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLanguage(e.target.value);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -26,6 +33,17 @@ const Navbar: React.FC = () => {
           >
             Schedule
           </NavLink>
+        </li>
+        <li>
+          <select
+            className="language-dropdown"
+            value={language}
+            onChange={handleLanguageChange}
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+          </select>
         </li>
       </ul>
     </nav>
