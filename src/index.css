@@ -14,7 +14,6 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  align-items: center;
 }
 
 /* Main content area should grow to fill available space */
@@ -22,8 +21,6 @@ html, body, #root {
   flex-grow: 1;            /* fills space between navbar and footer */
   padding-top: 60px;       /* height of your fixed navbar */
   padding-bottom: 50px;    /* height of your fixed footer */
-  max-width: 1200px;       /* content max width */
-  margin: 0 auto;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
 }

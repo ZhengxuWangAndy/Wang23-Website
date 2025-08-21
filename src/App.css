@@ -25,11 +25,9 @@ html, body, #root {
 /* Main content fills remaining space between navbar and footer */
 .app main {
   flex-grow: 1;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 70px 20px 60px; /* top padding for navbar, bottom for footer */
   box-sizing: border-box;
-  width: 100%;
+  width: 100vw;
 }
 
 /* Optional - smooth font rendering */

@@ -1,60 +1,119 @@
-section {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+/* 🌟 Contact Page Styling */
+.contact-page {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #0d47a1;
-  margin-bottom: 1rem;
   text-align: center;
 }
 
-p, ul, dl, blockquote {
-  font-size: 1.125rem;
-  line-height: 1.7;
+.contact-page h1 {
+  font-size: 2.8rem;
+  color: #0d47a1;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.contact-page p {
+  font-size: 1.2rem;
   color: #555;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-ul {
-  list-style-type: disc;
-  margin-left: 1.5rem;
+/* Contact Form */
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-blockquote {
-  font-style: italic;
-  border-left: 4px solid #0d47a1;
-  padding-left: 1rem;
-  margin: 1rem 0;
-  color: #222;
-}
-
-footer {
-  text-align: right;
+.contact-page label {
   font-weight: 600;
+  color: #0d47a1;
+}
+
+.contact-page input,
+.contact-page textarea {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus {
+  border-color: #0d47a1;
+  box-shadow: 0 0 6px rgba(13, 71, 161, 0.3);
+  outline: none;
+}
+
+.contact-page textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+/* Button */
+.contact-page button {
+  background: #e63946;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
   margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.contact-page button:hover {
+  background: #d62839;
+  transform: translateY(-2px);
+}
+
+/* Extra Info Section */
+.contact-page .contact-info {
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.contact-page .contact-info strong {
   color: #0d47a1;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  section {
-    margin: 1rem 1rem;
-    padding: 1rem;
+  .contact-page {
+    margin: 1.5rem;
+    padding: 1.5rem;
   }
 
-  h1 {
+  .contact-page h1 {
     font-size: 2rem;
   }
 
-  p, ul, dl, blockquote {
+  .contact-page p {
     font-size: 1rem;
+  }
+
+  .contact-page form {
+    gap: 1rem;
+  }
+
+  .contact-page button {
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 }
