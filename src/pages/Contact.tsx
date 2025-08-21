@@ -1,16 +1,32 @@
-import React from 'react';
-import '../styles/Contact.css';
+import React from "react";
+import "../styles/Contact.css";
 
-const Contact: React.FC = () => (
-  <section className="contact">
-    <h1>Contact Us</h1>
-    <p>We’d love to hear from you! Reach out through any of the following:</p>
-    <ul>
-      <li>Email: wang23llc@gmail.com</li>
-      <li>Phone: +1 (000) 000-000</li>
-      <li>Address: 2601 Westeimer Rd C613, Houston, Texas, 77098</li>
-    </ul>
-  </section>
-);
+const Contact: React.FC = () => {
+  return (
+    <section className="contact-page">
+  <h1>Contact Me</h1>
+  <p>Feel free to reach out by filling this form.</p>
+  
+  <form>
+    <label>Name</label>
+    <input type="text" placeholder="Your name" />
+
+    <label>Email</label>
+    <input type="email" placeholder="Your email" />
+
+    <label>Message</label>
+    <textarea placeholder="Write your message here..."></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div className="contact-info">
+    <p><strong>Email:</strong> youremail@example.com</p>
+    <p><strong>Phone:</strong> +1 234 567 890</p>
+  </div>
+</section>
+
+  );
+};
 
 export default Contact;
