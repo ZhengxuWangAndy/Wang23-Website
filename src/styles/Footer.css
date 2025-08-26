@@ -170,13 +170,16 @@
   align-items: flex-start;
   color: #ffca28;
   
-
+}
 .footer-contact-info a {
-  color: #ffca28;
+  color: #ffca28 !important; /* Material Red 600 */
   text-decoration: none;
+  font-weight: 600;
 }
+.footer-contact-info a:hover {
+  color: #b71c1c !important; /* Darker red on hover */
+  text-decoration: underline;
 }
-
 
   .footer-contact {
     align-items: flex-start;
