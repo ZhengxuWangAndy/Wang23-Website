@@ -1,5 +1,5 @@
 .footer {
-  position: fixed;
+  position: flex;
   top: auto;
   bottom: 0;
   left: 0;
@@ -21,7 +21,7 @@
 
 .footer p {
   margin: 0;
-  color: #ffca28;
+  color: inherit;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -89,8 +89,9 @@
 }
 
 .footer-contact a {
-  color: #ffca28;
-  text-decoration: underline;
+  color: #f9a825;
+  color: inherit;
+  text-decoration: none;
   font-weight: 500;
 }
 
@@ -159,22 +160,33 @@
   font-weight: 500;
 }
 
+
 .footer-contact-info,
 .footer-contact-address {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
   min-width: 200px;
-}
-
-.footer-contact a {
+  align-items: flex-start;
   color: #ffca28;
-  text-decoration: underline;
+  
 }
 .footer-contact-info a {
-  color: #ffca28;
+  color: #ffca28 !important; /* Material Red 600 */
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-contact-info a:hover {
+  color: #b71c1c !important; /* Darker red on hover */
   text-decoration: underline;
 }
+
+  .footer-contact {
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 0.5rem;
+    gap: 0.2rem;
+  }
 
 .footer-contact a:hover {
   color: #f9a825;
@@ -193,5 +205,6 @@
   .footer-contact-info,
   .footer-contact-address {
     min-width: auto;
+    
   }
 }
