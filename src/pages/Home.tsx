@@ -117,8 +117,9 @@ const Home: React.FC = () => {
         <p>it as easy as 1-2-3.</p>
       </div>
       <button className="cta-button">Get Started</button>
+      
 
-      {/* Original Service Rows */}
+
       <div className="service-row">
         <div className="section-header">
           <h2>Here's <span className="accent-blue">what</span> we do</h2>
@@ -140,6 +141,7 @@ const Home: React.FC = () => {
           </div>
           <div className="card">
             <h3 className="text-bold">Client-Centered</h3>
+
           </div>
         </div>
         <div className="section-header">
@@ -168,13 +170,10 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
+       
       </div>
-
       {/* New Auto-Rotating Cards Section */}
-      <div className="section auto-rotating-cards-section">
-        <h2 className="section-title">Ready to Transform Your Restaurant’s Website?</h2>
-        <Cards />
-      </div>
+      <Cards />
 
       {/* New Differentiators Section + Consultation Button */}
       <DifferentiatorsSection />
