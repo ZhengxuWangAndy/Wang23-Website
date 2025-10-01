@@ -97,16 +97,6 @@ const DifferentiatorsSection = () => (
 );
 
 const Home: React.FC = () => {
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, []);
 
   return (
     <div className="home-container">
