@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/About.css';
 
 const TeamSection = () => {
@@ -42,7 +42,6 @@ const TeamSection = () => {
     }
   ];
 
-  // Desktop: slide one card at a time, Mobile: slide one card at a time
   const maxSlide = teamMembers.length - (window.innerWidth > 768 ? 2 : 1);
 
   const nextSlide = () => {
@@ -53,15 +52,20 @@ const TeamSection = () => {
     setCurrentSlide((prev) => prev <= 0 ? maxSlide : prev - 1);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentSlide, maxSlide]);
+
   return (
     <div className="team-section">
       <h2 className="section-title">Meet Our Team</h2>
       
       <div className="carousel-container">
-        {/* Left Navigation Button */}
         <img src="/icons/Leftbutton.svg" alt="Previous" className="carousel-nav-button" onClick={prevSlide} />
-
-        {/* Cards Container */}
         <div className="cards-wrapper">
           <div className="cards-container" style={{ transform: `translateX(calc(-${currentSlide} * (50% + 1rem)))` }}>
             {teamMembers.map((member, idx) => (
@@ -83,8 +87,6 @@ const TeamSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Right Navigation Button */}
         <img src="/icons/Rightbutton.svg" alt="Previous" className="carousel-nav-button" onClick={nextSlide} />
       </div>
       <style>{`
@@ -97,6 +99,7 @@ const TeamSection = () => {
     </div>
   );
 };
+
 const About: React.FC = () => (
   <div className="about-container">
     <TeamSection />
