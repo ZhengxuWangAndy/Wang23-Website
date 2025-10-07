@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "../styles/About.css";
 
-/* ===================== TeamSection (from snippet 1) ===================== */
+/* ===================== TeamSection  ===================== */
 const TeamSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -169,7 +169,7 @@ const TeamSection = () => {
   );
 };
 
-/* ===================== About (from snippet 2, with TeamSection added) ===================== */
+/* ===================== About  with TeamSection added ===================== */
 const GAP_PX = 28;
 const MOBILE_Q = "(max-width: 720px)";
 const AUTOPLAY_MS = 3000;
