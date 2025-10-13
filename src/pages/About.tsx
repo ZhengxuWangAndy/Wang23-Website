@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "../styles/About.css";
-
-/* ===================== TeamSection  ===================== */
 const TeamSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -169,7 +167,7 @@ const TeamSection = () => {
   );
 };
 
-/* ===================== About  with TeamSection added ===================== */
+/* ===================== About with TeamSection added ===================== */
 const GAP_PX = 28;
 const MOBILE_Q = "(max-width: 720px)";
 const AUTOPLAY_MS = 3000;
@@ -273,13 +271,13 @@ const About: React.FC = () => {
     <div className="about-page">
       {/* Top heading (full-bleed gradient behind) */}
       <section className="about-header">
-        <h1>About</h1>
+        <h1 className="section-title">About</h1>
         <p>Together, Wang23 filler filler filler</p>
       </section>
 
       {/* Our Story */}
       <section className="about-story">
-        <h2>Our Story</h2>
+        <h2 className="section-title">Our Story</h2>
         <p>
           Wang23 is a creative technology company dedicated to making digital
           transformation simple and effective. Our philosophy is: “Working with
@@ -289,7 +287,6 @@ const About: React.FC = () => {
       </section>
 
       <div className="our-story-media">
-        {/* If the file is in /public, use the root-relative path */}
         <img
           src="/our_story_image.png"
           alt="Our team collaborating"
@@ -299,11 +296,11 @@ const About: React.FC = () => {
         />
       </div>
 
-      {/* Our Values (cards only, no outer box) */}
+      {/* Our Values */}
       <section className="values-section no-frame">
-        <h2 className="vc-title">Our Values</h2>
+        <h2 className="section-title">Our Values</h2>
 
-        {/* Left arrow (SVG image) */}
+        {/* Left arrow */}
         <button
           className="vc-nav vc-left"
           aria-label="Previous"
@@ -340,7 +337,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Right arrow (SVG image) */}
+        {/* Right arrow */}
         <button
           className="vc-nav vc-right"
           aria-label="Next"
@@ -352,7 +349,7 @@ const About: React.FC = () => {
         </button>
       </section>
 
-      {/* ===== Inserted: Team Section (from snippet 1) ===== */}
+      {/* Team Section */}
       <TeamSection />
     </div>
   );
