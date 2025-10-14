@@ -14,7 +14,7 @@ export const UPDATE_DATA = [
     author: 'Andy Wang',
     tags: ['Branding', 'Identity'],
     title: 'Brand Guidelines',
-    content: 'Our brand identity is designed to reflect Wang23\'s balance between creativity and precision. The brand guidelines outline how to use our logo, color palette, and typography to ensure a consistent look and feel across all platforms.'
+    content: 'Our brand identity is designed to reflect Wang23’s balance between creativity and precision. The brand guidelines outline how to use our logo, color palette, and typography to ensure a consistent look and feel across all platforms.'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const UPDATE_DATA = [
     author: 'Design Team',
     tags: ['Logo', 'Visual Identity'],
     title: 'Logo Updates',
-    content: 'The logo is constructed from a series of interlocking geometric shapes, forming a bold and modern composition. The use of polygons and rectangles conveys precision, structure, and reliability, symbolizing a strong foundation.'
+    content: 'The logo is constructed from a series of interlocking geometric shapes, forming a bold and modern composition. The use of polygons and rectangles conveys precision, structure, and reliability, symbolizing a strong foundation.'
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ export const UPDATE_DATA = [
     author: 'Andy Wang',
     tags: ['Team', 'Announcements'],
     title: 'Company Updates',
-    content: 'As Wang23 expands its design and development initiatives, we\'re constantly evolving launching new features, refining our processes, and celebrating the people behind our work.'
+    content: 'As Wang23 expands its design and development initiatives, we’re constantly evolving launching new features, refining our processes, and celebrating the people behind our work. '
   },
   {
     id: 6,
