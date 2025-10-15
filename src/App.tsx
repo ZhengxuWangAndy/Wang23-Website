@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import './styles/global.css'; // ensure styles are applied
+import Update from './pages/Update';
 
 const App: React.FC = () => {
   return (
@@ -25,14 +26,15 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/updates" element={<Update />} />
+            {/* <Route path="/services" element={<Services />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} /> */}
           </Routes>
         </main>
 
