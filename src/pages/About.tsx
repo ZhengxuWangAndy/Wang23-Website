@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/About.css';
-
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import "../styles/About.css";
 const TeamSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -74,11 +73,11 @@ const TeamSection = () => {
   const maxSlide = teamMembers.length - (window.innerWidth > 768 ? 2 : 1);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => prev >= maxSlide ? 0 : prev + 1);
+    setCurrentSlide((prev) => (prev >= maxSlide ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => prev <= 0 ? maxSlide : prev - 1);
+    setCurrentSlide((prev) => (prev <= 0 ? maxSlide : prev - 1));
   };
 
   useEffect(() => {
@@ -92,11 +91,21 @@ const TeamSection = () => {
   return (
     <div className="team-section">
       <h2 className="section-title">Meet Our Team</h2>
-      
+
       <div className="carousel-container">
-        <img src="/icons/Leftbutton.svg" alt="Previous" className="carousel-nav-button" onClick={prevSlide} />
+        <img
+          src="/icons/Leftbutton.svg"
+          alt="Previous"
+          className="carousel-nav-button"
+          onClick={prevSlide}
+        />
         <div className="cards-wrapper">
-          <div className="cards-container" style={{ transform: `translateX(calc(-${currentSlide} * (50% + 1rem)))` }}>
+          <div
+            className="cards-container"
+            style={{
+              transform: `translateX(calc(-${currentSlide} * (50% + 1rem)))`
+            }}
+          >
             {teamMembers.map((member, idx) => (
               <div key={idx} className="team-card">
                 <div className="team-card-header">
@@ -105,9 +114,33 @@ const TeamSection = () => {
                     <h3 className="team-name">{member.name}</h3>
                     <p className="team-role">{member.role}</p>
                     <div className="team-socials">
-                      {member?.linkedin && (<a href={member.linkedin} target="_blank"><img src="/icons/Linkedin.svg" alt="Linkedin" className="social-icon" /></a>)}
-                      {member?.website && (<a href={member.website} target="_blank"><img src="/icons/Website.svg" alt="Website" className="social-icon" /></a>)}
-                      {member?.github && (<a href={member.github} target="_blank"><img src="/icons/Github.svg" alt="Github" className="social-icon" /></a>)}
+                      {member?.linkedin && (
+                        <a href={member.linkedin} target="_blank">
+                          <img
+                            src="/icons/Linkedin.svg"
+                            alt="Linkedin"
+                            className="social-icon"
+                          />
+                        </a>
+                      )}
+                      {member?.website && (
+                        <a href={member.website} target="_blank">
+                          <img
+                            src="/icons/Website.svg"
+                            alt="Website"
+                            className="social-icon"
+                          />
+                        </a>
+                      )}
+                      {member?.github && (
+                        <a href={member.github} target="_blank">
+                          <img
+                            src="/icons/Github.svg"
+                            alt="Github"
+                            className="social-icon"
+                          />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -116,23 +149,210 @@ const TeamSection = () => {
             ))}
           </div>
         </div>
-        <img src="/icons/Rightbutton.svg" alt="Previous" className="carousel-nav-button" onClick={nextSlide} />
+        <img
+          src="/icons/Rightbutton.svg"
+          alt="Previous"
+          className="carousel-nav-button"
+          onClick={nextSlide}
+        />
       </div>
       <style>{`
-      @media (max-width: 768px) {
-        .cards-container {
-          gap: 1rem;
-          transform: translateX(calc(-${currentSlide} * (100% + 1rem))) !important;
-        }
-      }`}</style>
+        @media (max-width: 768px) {
+          .cards-container {
+            gap: 1rem;
+            transform: translateX(calc(-${currentSlide} * (100% + 1rem))) !important;
+          }
+        }`}</style>
     </div>
   );
 };
 
-const About: React.FC = () => (
-  <div className="about-container">
-    <TeamSection />
-  </div>
-);
+/* ===================== About with TeamSection added ===================== */
+const GAP_PX = 28;
+const MOBILE_Q = "(max-width: 720px)";
+const AUTOPLAY_MS = 3000;
+
+const About: React.FC = () => {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+  const [isMobile, setIsMobile] = useState<boolean>(() => matchMedia(MOBILE_Q).matches);
+  const autoplayRef = useRef<number | null>(null);
+
+  const getStep = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 0;
+    const first = track.querySelector<HTMLElement>(".vc-card");
+    if (!first) return 0;
+    return first.offsetWidth + GAP_PX; // scroll exactly one card
+  }, []);
+
+  const updateArrows = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const max = track.scrollWidth - track.clientWidth - 1; // -1 for rounding
+    setCanPrev(track.scrollLeft > 0);
+    setCanNext(track.scrollLeft < max);
+  }, []);
+
+  const scrollByStep = useCallback(
+    (dir: 1 | -1) => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const step = getStep() || track.clientWidth * 0.9;
+      const max = track.scrollWidth - track.clientWidth;
+      const next = track.scrollLeft + dir * step;
+
+      // Wrap around only on mobile
+      if (isMobile) {
+        if (next > max - 2) track.scrollTo({ left: 0, behavior: "smooth" });
+        else if (next < 0) track.scrollTo({ left: max, behavior: "smooth" });
+        else track.scrollBy({ left: dir * step, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: dir * step, behavior: "smooth" });
+      }
+
+      window.setTimeout(updateArrows, 320);
+    },
+    [getStep, isMobile, updateArrows]
+  );
+
+  // Breakpoint / resize
+  useEffect(() => {
+    updateArrows();
+    const onResize = () => setIsMobile(matchMedia(MOBILE_Q).matches);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [updateArrows]);
+
+  // Autoplay on mobile
+  useEffect(() => {
+    if (!isMobile) {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+      return;
+    }
+    autoplayRef.current = window.setInterval(() => scrollByStep(1), AUTOPLAY_MS);
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+    };
+  }, [isMobile, scrollByStep]);
+
+  // Pause autoplay on user interaction; resume after a delay
+  useEffect(() => {
+    if (!isMobile) return;
+    const track = trackRef.current;
+    if (!track) return;
+
+    let resumeTimer: number | null = null;
+    const pause = () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => {
+        autoplayRef.current = window.setInterval(() => scrollByStep(1), AUTOPLAY_MS);
+      }, 2500);
+    };
+
+    track.addEventListener("touchstart", pause, { passive: true });
+    track.addEventListener("wheel", pause, { passive: true });
+    track.addEventListener("scroll", () => window.setTimeout(updateArrows, 50), { passive: true });
+
+    return () => {
+      track.removeEventListener("touchstart", pause as any);
+      track.removeEventListener("wheel", pause as any);
+      if (resumeTimer) clearTimeout(resumeTimer);
+    };
+  }, [isMobile, scrollByStep, updateArrows]);
+
+  return (
+    <div className="about-page">
+      {/* Top heading (full-bleed gradient behind) */}
+      <section className="about-header">
+        <h1 className="section-title">About</h1>
+        <p>Together, Wang23 filler filler filler</p>
+      </section>
+
+      {/* Our Story */}
+      <section className="about-story">
+        <h2 className="section-title">Our Story</h2>
+        <p>
+          Wang23 is a creative technology company dedicated to making digital
+          transformation simple and effective. Our philosophy is: “Working with
+          Wang23 is as easy as 1-2-3.” We help businesses and individuals turn
+          ideas into impactful digital experiences.
+        </p>
+      </section>
+
+      <div className="our-story-media">
+        <img
+          src="/our_story_image.png"
+          alt="Our team collaborating"
+          width={820}
+          height={389}
+          className="our-story-img"
+        />
+      </div>
+
+      {/* Our Values */}
+      <section className="values-section no-frame">
+        <h2 className="section-title">Our Values</h2>
+
+        {/* Left arrow */}
+        <button
+          className="vc-nav vc-left"
+          aria-label="Previous"
+          onClick={() => scrollByStep(-1)}
+          disabled={!canPrev && !isMobile}
+          type="button"
+        >
+          <img className="vc-icon-img" src="/icons/Leftbutton.svg" alt="" aria-hidden="true" />
+        </button>
+
+        {/* Scroll viewport */}
+        <div className="vc-viewport">
+          <div className="vc-track" ref={trackRef}>
+            <article className="vc-card">
+              <div className="vc-body">
+                Always pushing boundaries to deliver fresh, effective solutions.
+              </div>
+              <footer className="vc-bar">Innovation</footer>
+            </article>
+
+            <article className="vc-card">
+              <div className="vc-body">
+                Making complex digital tools easy and intuitive.
+              </div>
+              <footer className="vc-bar">Simplicity</footer>
+            </article>
+
+            <article className="vc-card">
+              <div className="vc-body">
+                Designing with imagination to create unique experiences.
+              </div>
+              <footer className="vc-bar">Creativity</footer>
+            </article>
+          </div>
+        </div>
+
+        {/* Right arrow */}
+        <button
+          className="vc-nav vc-right"
+          aria-label="Next"
+          onClick={() => scrollByStep(1)}
+          disabled={!canNext && !isMobile}
+          type="button"
+        >
+          <img className="vc-icon-img" src="/icons/Rightbutton.svg" alt="" aria-hidden="true" />
+        </button>
+      </section>
+
+      {/* Team Section */}
+      <TeamSection />
+    </div>
+  );
+};
 
 export default About;
