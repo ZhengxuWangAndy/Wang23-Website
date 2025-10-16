@@ -10,11 +10,19 @@
 
 /* --- Header --- */
 .update-details-header {
-  width: 100%;
-  background: linear-gradient(106.96deg, rgba(128, 198, 248, 0.2) 24.67%, rgba(200, 53, 248, 0.2) 112.48%);
-  text-align: center;
-  padding: 4rem 1rem 3rem;
-  border-bottom: 1px dashed #ccc;
+  max-width: 1512px;
+    width: 100%;
+    height: auto;
+    min-height: 333px;
+    background: linear-gradient(106.96deg, rgba(128, 198, 248, 0.2) 24.67%, rgba(200, 53, 248, 0.2) 112.48%);
+    opacity: 1;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .update-details-header-content {
