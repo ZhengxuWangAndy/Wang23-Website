@@ -1,0 +1,135 @@
+/* --- Layout --- */
+.update-details-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  background-color: #fff;
+  color: #000;
+}
+
+/* --- Header --- */
+.update-details-header {
+  max-width: 1512px;
+    width: 100%;
+    height: auto;
+    min-height: 333px;
+    background: linear-gradient(106.96deg, rgba(128, 198, 248, 0.2) 24.67%, rgba(200, 53, 248, 0.2) 112.48%);
+    opacity: 1;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.update-details-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.update-details-date {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.update-details-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.update-details-author {
+  color: #444;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.update-details-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  
+}
+
+.update-tag {
+  border: 1px solid #0864ce;;
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: #0864ce;
+}
+
+/* --- Body --- */
+.update-details-body {
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.update-details-image-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.update-details-tagline {
+  color: #444;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.update-details-subheading {
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.update-details-content {
+  text-align: left;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.update-details-footer {
+  text-align: left;
+  color: #444;
+  font-style: italic;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 15px; /* space between buttons */
+  margin-top: 15px;
+    justify-content: center;
+}
+
+
+/* Back Button */
+.back-button {
+  padding: 10px 20px;
+  background-color: #6c757d; /* Gray */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+

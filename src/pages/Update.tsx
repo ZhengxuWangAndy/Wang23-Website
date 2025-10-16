@@ -1,5 +1,6 @@
 // Update.tsx
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { UPDATE_DATA } from '../data/UpdateData';
 import '../styles/Update.css';
 
@@ -22,7 +23,9 @@ const UpdateCard = ({ update }) => {
       <div className="update-content">
         <h3 className="update-title">{update.title}</h3>
         <p className="update-description">{update.content}</p>
-        <a href="#" className="update-link">Read More</a>
+         <Link to={`/updates/${update.id}`} className="update-link">
+          Read More
+        </Link>
       </div>
     </div>
   );

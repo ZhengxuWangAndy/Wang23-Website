@@ -37,6 +37,14 @@ const TeamSection = () => {
       bio: "Ragasree recently graduated with a master’s in computer science and is a frontend developer passionate about blending design with code. She creates sleek, modern, and responsive interfaces that prioritize user experience. Always eager to learn, she loves bringing creative ideas to life on the web."
     },
     {
+      name: "Akhil Reddy Motakatla",
+      role: "Software Engineer Intern",
+      linkedin: "https://www.linkedin.com/in/akhil-reddy-motakatla/",
+      website: "",
+      github: "https://github.com/akhilMotakatla",
+      bio: "He’s a versatile Software Engineer with over 4 years of experience in .NET, C#, ASP.NET Core, and Azure. Recently completing his Master’s in Computer Science from the University of North Texas, he’s passionate about building scalable web and cloud solutions"
+    },
+    {
       name: "Ro-Ann Shen",
       role: "Web Design Intern",
       linkedin: "https://www.linkedin.com/in/ro-ann-shen/",
