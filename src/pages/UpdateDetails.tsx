@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { UPDATE_DATA } from '../data/UpdateData';
 import '../styles/UpdateDetails.css';
-import { jsPDF } from 'jspdf';
 
 const UpdateDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,17 +16,7 @@ const UpdateDetails: React.FC = () => {
     );
   }
 
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text(update.title, 10, 20);
-    doc.setFontSize(12);
-    doc.text(`By ${update.author} | ${update.date}`, 10, 30);
-    doc.text(`Tags: ${update.tags.join(', ')}`, 10, 40);
-    doc.text('----------------------------------------', 10, 50);
-    doc.text(update.content, 10, 60, { maxWidth: 180 });
-    doc.save(`${update.title}.pdf`);
-  };
+
 
   return (
     <div className="update-details-page">
