@@ -10,6 +10,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/zhengxuwang/",
       website: "",
       github: "",
+      image: "/team/andy_wang.jpg",
       bio: "Andy is part coder, part problem-solver, and part tech enthusiast. I believe software shouldn’t just work; it should work elegantly, scale smartly, and maybe even make you smile once in a while. At Wang23, we blend creativity with solid engineering to deliver professional software services—turning complex ideas into reliable, scalable solutions that actually work."
     },
     {
@@ -18,6 +19,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/ghanashyamvagale",
       website: "www.ghanashyamvagale.com",
       github: "",
+      image: "/team/ghanashyam_vagale.jpg",
       bio: "As a dedicated Computer Science graduate student at Northeastern University, Ghanashyam specializes in Artificial Intelligence and Web Development."
     },
     {
@@ -26,6 +28,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/priscilla-s-097b89b3/",
       website: "",
       github: "",
+      image: "/team/priscilla_sheetal.png",
       bio: "Priscilla is a UX designer and researcher who loves creating experiences that feel simple, thoughtful, and humane. With a background that blends interaction design, fashion, and visual storytelling, she brings creativity and problem-solving together in unique ways. Outside of design work, she’s often at the movies, photographing, or cooking."
     },
     {
@@ -34,6 +37,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/ragasree-thatipamula-4a83a2184/",
       website: "https://ragasree-thatipamula.netlify.app/",
       github: "https://github.com/ragasree123/",
+      image: "/team/ragasree_thatipamula.jpg",
       bio: "Ragasree recently graduated with a master’s in computer science and is a frontend developer passionate about blending design with code. She creates sleek, modern, and responsive interfaces that prioritize user experience. Always eager to learn, she loves bringing creative ideas to life on the web."
     },
     {
@@ -42,6 +46,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/akhil-reddy-motakatla/",
       website: "",
       github: "https://github.com/akhilMotakatla",
+      image: "/team/default.png",
       bio: "He’s a versatile Software Engineer with over 4 years of experience in .NET, C#, ASP.NET Core, and Azure. Recently completing his Master’s in Computer Science from the University of North Texas, he’s passionate about building scalable web and cloud solutions"
     },
     {
@@ -50,6 +55,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/ro-ann-shen/",
       website: "",
       github: "",
+      image: "/team/default.png",
       bio: "Ro-Ann is a recent M.P.S. graduate from Cornell University’s Information Science program. When she’s not on Figma, she can often be found curating playlists on Spotify and baking cinnamon rolls :)"
     },
     {
@@ -58,6 +64,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/sai-ganesh-bhukya-08a409160/",
       website: "",
       github: "https://github.com/saiganeshbhukya",
+      image: "/team/sai_ganesh_bhukya.jpg",
       bio: "Full stack dev & ML enthusiast who loves building AI-powered apps, scaling systems, and turning ideas into real-world solutions. Always curious, always learning."
     },
     {
@@ -66,6 +73,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/samantha-abalayan",
       website: "https://samabalayan.wixsite.com/portfolio",
       github: "",
+      image: "/team/samantha_abalayan.jpeg",
       bio: "Sam is a current student studying B.S and M.S in Computer Science at University of Southern California. They enjoy collecting CDs and vinyls as music is a great inspiration when designing!"
     },
     {
@@ -74,6 +82,7 @@ const TeamSection = () => {
       linkedin: "https://www.linkedin.com/in/sumit-gawali227/",
       website: "",
       github: "",
+      image: "/team/default.png",
       bio: "Sumit is a UX designer with a background in architecture and an M.P.S. in Information Science from Cornell. He designs human-centered digital experiences across platforms. Outside of work, he enjoys cultural tours and hiking trails."
     }
   ];
@@ -117,7 +126,11 @@ const TeamSection = () => {
             {teamMembers.map((member, idx) => (
               <div key={idx} className="team-card">
                 <div className="team-card-header">
-                  <div className="team-avatar" />
+                  <img 
+                    src={member.image}
+                    alt={member.name}
+                    className="team-avatar"
+                  />
                   <div className="team-info">
                     <h3 className="team-name">{member.name}</h3>
                     <p className="team-role">{member.role}</p>
