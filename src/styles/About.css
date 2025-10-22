@@ -195,7 +195,8 @@ main {
 /* Cards */
 .vc-card {
   flex: 0 0 320px;
-  min-height: 220px;
+  min-height: unset;
+  height: auto;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
@@ -220,9 +221,10 @@ main {
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  min-height: 140px;
+  min-height: 0;
+  height: auto;
   padding: 24px;
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,7 +274,7 @@ main {
   }
 
   .vc-card {
-    flex-basis: 88vw;
+    flex-basis: 90%;
   }
 }
 
@@ -673,6 +675,12 @@ main {
 .vc-card {
   background: #fff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
   flex: 0 0 320px;
+  flex: 0 0 100% !important; /* full width on small screens */
+  max-width: 360px; /* fits within 390px view safely */
+  margin: 0 auto; /* center each card */
+  border-radius: 20px !important;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  background-clip: padding-box;
 }
