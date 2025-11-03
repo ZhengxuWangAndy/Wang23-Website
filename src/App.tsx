@@ -15,6 +15,7 @@ import TermsOfService from './pages/TermsOfService';
 import './styles/global.css'; // ensure styles are applied
 import Update from './pages/Update';
 import UpdateDetails from './pages/UpdateDetails';
+import PostUpdatesManager from './pages/PostUpdatesManager';
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/updates" element={<Update />} />
             <Route path="/updates/:id" element={<UpdateDetails />} />
+            <Route path="/post-updates" element={<PostUpdatesManager />} />
             {/* <Route path="/services" element={<Services />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/schedule" element={<Schedule />} />
