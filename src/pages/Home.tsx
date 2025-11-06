@@ -36,34 +36,57 @@ const cardData = [
 ];
 
 // Auto-rotating Cards Component
+// Auto-rotating responsive Cards Component
 const Cards = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0); // current page (not raw card index)
+  const [cardsPerView, setCardsPerView] = useState<number>(() => {
+    if (typeof window === 'undefined') return 1;
+    return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  });
+
+  useEffect(() => {
+    const onResize = () => {
+      const newPerView = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+      setCardsPerView(newPerView);
+      setPageIndex(0); // reset to first page when layout changes
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const pageCount = Math.ceil(cardData.length / cardsPerView);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+      setPageIndex((prev) => (prev + 1) % pageCount);
     }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+   return () => clearInterval(interval);
+  }, [pageCount, cardsPerView]);
 
   return (
     <div className="cards-container">
-      <div
-        className="cards-carousel"
-        style={{ transform: `translateX(-${currentIndex * (100 / cardData.length)}%)` }}
-      >
-        {cardData.map((card, index) => (
-          <div key={index} className="card-wrapper">
-            <div className="card-content">
-              <h3 className="card-title">{card.title}</h3>
-              <p className="card-description">{card.description}</p>
-              <a href={card.link} className="card-link">
-                <button className="card-button">{card.buttonText}</button>
-              </a>
+     <div className="cards-viewport">
+        <div
+          className="cards-carousel"
+          style={{ transform: `translateX(-${pageIndex * 100}%)` }}
+        >
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className="card-wrapper"
+              style={{ flex: `0 0 ${100 / cardsPerView}%` }} // width per view
+            >
+              <div className="card-content">
+                <h3 className="card-title">{card.title}</h3>
+                <p className="card-description">{card.description}</p>
+                <a href={card.link} className="card-link">
+                  <button className="card-button">{card.buttonText}</button>
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
++      </div>
     </div>
   );
 };
