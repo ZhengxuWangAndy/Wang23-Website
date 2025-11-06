@@ -24,6 +24,7 @@
   flex: 2;
   display: flex;
   justify-content: center;
+  margin-left: -2rem;
 }
 .navbar-links {
   display: flex;
@@ -153,7 +154,7 @@
   }
 
   .navbar-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
   }
   .navbar-links li a {
