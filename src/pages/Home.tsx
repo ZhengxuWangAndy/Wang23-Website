@@ -38,26 +38,51 @@ const cardData = [
 // Auto-rotating Cards Component
 const Cards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1);
 
   useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth <= 768) setCardsPerView(1); 
+      else if (window.innerWidth <= 1200) setCardsPerView(2); 
+      else setCardsPerView(3); 
+    };
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
+  }, []);
+
+ 
+  useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+      setCurrentIndex((prev) =>
+        prev + 1 >= cardData.length ? 0 : prev + 1
+      );
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  
+  const translateX = -(currentIndex * (100 / cardsPerView));
 
   return (
     <div className="cards-container">
       <div
         className="cards-carousel"
-        style={{ transform: `translateX(-${currentIndex * (100 / cardData.length)}%)` }}
+        style={{
+          transform: `translateX(${translateX}%)`,
+          width: `${(cardData.length / cardsPerView) * 100}%`,
+        }}
       >
         {cardData.map((card, index) => (
-          <div key={index} className="card-wrapper">
+          <div
+            key={index}
+            className="card-wrapper"
+            style={{ flex: `0 0 ${100 / cardsPerView}%` }}
+          >
             <div className="card-content">
               <h3 className="card-title">{card.title}</h3>
               <p className="card-description">{card.description}</p>
-              <a href={card.link} className="card-link">
+              <a href={card.link}>
                 <button className="card-button">{card.buttonText}</button>
               </a>
             </div>
